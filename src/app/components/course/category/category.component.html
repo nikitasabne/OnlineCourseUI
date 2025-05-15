@@ -1,0 +1,21 @@
+<div class="scroll-container">
+  <div class="scroll-cards">
+    <div class="card course-card">
+      <div class="card-body text-center">
+        <h5 class="card-title">All Courses</h5>
+        <p class="card-text">
+          Explore a variety of learning paths to boost your career.
+        </p>
+        <a href="#" class="btn btn-primary">Explore</a>
+      </div>
+    </div>
+
+    <div class="card course-card" *ngFor="let category of categories">
+      <div class="card-body text-center">
+        <h5 class="card-title">{{ category.categoryName }}</h5>
+        <p class="card-text">{{ category.description }}</p>
+        <a href="#" class="btn btn-primary">Explore</a>
+      </div>
+    </div>
+  </div>
+</div>
