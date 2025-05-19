@@ -1,0 +1,45 @@
+<!-- <div *ngIf="courseDetail">
+  <h1>{{ courseDetail.title }}</h1>
+  <img [src]="courseDetail.thumbnail" alt="{{ courseDetail.title }}" />
+  <p>{{ courseDetail.description }}</p>
+  <ul>
+    <li>Price: ${{ courseDetail.price }}</li>
+    <li>Duration: {{ courseDetail.duration }} hours</li>
+    <li>Type: {{ courseDetail.courseType }}</li>
+    <li>Seats: {{ courseDetail.seatsAvailable }}</li>
+    <li>Start: {{ courseDetail.startDate | date }}</li>
+    <li>End: {{ courseDetail.endDate | date }}</li>
+  </ul>
+</div>
+
+<div *ngIf="!courseDetail">
+  <p>Uploading soon...</p>
+</div> -->
+
+<div *ngIf="courseDetail" class="course-details container">
+  <div class="row">
+    <!-- Course Title Section with Gradient Effect -->
+    <div class="title-gradient mb-4 text-center">
+      <h1>{{ courseDetail.title }}</h1>
+    </div>
+
+    <!-- Left side: Course Title, Meta Information -->
+    <div class="col-md-4">
+      <!-- Course Meta Information -->
+      <div class="course-meta card mb-4 shadow-sm border-0">
+        <div class="card-body p-4">
+          <h2 class="meta-heading">Course Details</h2>
+          <p><strong>Duration:</strong> {{ courseDetail.duration }} hours</p>
+          <p>
+            <strong>Seats Available:</strong>
+            {{ courseDetail.seatsAvailable || "Unlimited" }}
+          </p>
+          <p>
+            <strong>Start Date:</strong> {{ courseDetail.startDate | date }}
+          </p>
+          <p><strong>End Date:</strong> {{ courseDetail.endDate | date }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

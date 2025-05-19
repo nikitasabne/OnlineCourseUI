@@ -6,6 +6,7 @@ import { BrowseCourseComponent } from './components/course/browse-course/browse-
 import { HomeComponent } from './components/home/home.component';
 import { CourseByCategoryComponent } from './components/course/course-by-category/course-by-category.component';
 import { CategoryComponent } from './components/course/category/category.component';
+import { CourseDetailsComponent } from './components/course/course-details/course-details.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -15,6 +16,6 @@ export const routes: Routes = [
   { path: 'contact-us', component: ContactUsComponent },
   { path: 'plans-and-price', component: PlansAndPricingComponent },
   { path: 'course/category/:categoryId', component: CourseByCategoryComponent },
-  { path: 'course/category/:categoryId', component: BrowseCourseComponent },
   { path: 'category', component: CategoryComponent },
+  { path: 'course/course-detail/:courseId', component: CourseDetailsComponent },
 ];
