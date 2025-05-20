@@ -91,6 +91,9 @@ h2 {
 .course-details {
   margin-top: 20px;
 }
+.title-color {
+  background: linear-gradient(to right, #003366, #b3cde0);
+}
 
 .title-gradient {
   background: linear-gradient(
@@ -105,7 +108,7 @@ h2 {
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 15px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a slight shadow for a 3D effect */
+  /*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a slight shadow for a 3D effect */
 }
 
 .title-gradient h1 {
