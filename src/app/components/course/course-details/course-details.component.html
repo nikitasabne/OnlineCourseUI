@@ -1,0 +1,118 @@
+<div *ngIf="courseDetail">
+  <div *ngIf="courseDetail" class="course-details container">
+    <div class="row">
+      <!-- Course Title Section with Gradient Effect -->
+      <div class="title-color text-center">
+        <h1 class="title-gradient mb-3 text-center">
+          {{ courseDetail.title }}
+        </h1>
+        <p class="mb-0">Price: ${{ courseDetail.price }}</p>
+        <p>Course Type: {{ courseDetail.courseType }}</p>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <!-- Course Meta Information -->
+          <div class="course-meta card mb-4 shadow-sm border-0">
+            <div class="card-body p-4">
+              <h2 class="meta-heading">Description</h2>
+              <p>{{ courseDetail.description }}</p>
+              <p></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <!-- Course Meta Information -->
+          <div class="course-meta card mb-4 shadow-sm border-0">
+            <div class="card-body p-4">
+              <h2 class="meta-heading">Category</h2>
+              <p>
+                <strong>{{ courseDetail.category.categoryName }}</strong>
+              </p>
+              <p>{{ courseDetail.category.description }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Left side: Course Title, Meta Information -->
+      <div class="col-md-6">
+        <!-- Course Meta Information -->
+        <div class="course-meta card mb-4 shadow-sm border-0">
+          <div class="card-body p-4">
+            <h2 class="meta-heading">Course Details</h2>
+            <p><strong>Duration:</strong> {{ courseDetail.duration }} hours</p>
+            <p>
+              <strong>Seats Available:</strong>
+              {{ courseDetail.seatsAvailable || "Unlimited" }}
+            </p>
+            <p>
+              <strong>Start Date:</strong> {{ courseDetail.startDate | date }}
+            </p>
+            <p><strong>End Date:</strong> {{ courseDetail.endDate | date }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <!-- Course Meta Information -->
+        <div class="course-meta card mb-4 shadow-sm border-0">
+          <div class="card-body p-4">
+            <h2 class="meta-heading">User Rating</h2>
+            <p>Average Rating: {{ courseDetail.userRating.averageRating }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="card-body p-4">
+        <h2 class="session-heading">Sessions</h2>
+        <div class="accordion" id="accordionExample">
+          <div
+            class="accordion-item"
+            *ngFor="let session of courseDetail.sessionDetails"
+          >
+            <h2 class="accordion-header" id="heading{{ session.sessionId }}">
+              <button
+                class="accordion-button"
+                type="button"
+                [attr.data-bs-toggle]="'collapse'"
+                [attr.data-bs-target]="'#collapse' + session.sessionId"
+                [attr.aria-expanded]="true"
+                [attr.aria-controls]="'collapse' + session.sessionId"
+              >
+                {{ session.title }}
+              </button>
+            </h2>
+            <div
+              [id]="'collapse' + session.sessionId"
+              class="accordion-collapse collapse show"
+              [attr.aria-labelledby]="'heading' + session.sessionId"
+              data-bs-parent="#accordionExample"
+            >
+              <div class="accordion-body">
+                <p [innerHTML]="session.description"></p>
+                <button
+                  (click)="openVideo(session.videoUrl)"
+                  class="btn btn-primary"
+                >
+                  Watch Video
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <h5>
+        {{ session.title }}
+      </h5>
+      <p class="mb-0">{{ session.description }}</p>
+      <button (click)="openVideo(session.videoUrl)" class="btn btn-primary">
+        Watch Video
+      </button>
+    </div> -->
+      </div>
+
+      <div *ngIf="!courseDetail">
+        <p>Uploading soon...</p>
+      </div>
+    </div>
+  </div>
+</div>
