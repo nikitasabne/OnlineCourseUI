@@ -62,9 +62,57 @@
         </div>
       </div>
     </div>
-  </div>
+    <div class="row">
+      <div class="card-body p-4">
+        <h2 class="session-heading">Sessions</h2>
+        <div class="accordion" id="accordionExample">
+          <div
+            class="accordion-item"
+            *ngFor="let session of courseDetail.sessionDetails"
+          >
+            <h2 class="accordion-header" id="heading{{ session.sessionId }}">
+              <button
+                class="accordion-button"
+                type="button"
+                [attr.data-bs-toggle]="'collapse'"
+                [attr.data-bs-target]="'#collapse' + session.sessionId"
+                [attr.aria-expanded]="true"
+                [attr.aria-controls]="'collapse' + session.sessionId"
+              >
+                {{ session.title }}
+              </button>
+            </h2>
+            <div
+              [id]="'collapse' + session.sessionId"
+              class="accordion-collapse collapse show"
+              [attr.aria-labelledby]="'heading' + session.sessionId"
+              data-bs-parent="#accordionExample"
+            >
+              <div class="accordion-body">
+                <p [innerHTML]="session.description"></p>
+                <button
+                  (click)="openVideo(session.videoUrl)"
+                  class="btn btn-primary"
+                >
+                  Watch Video
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <h5>
+        {{ session.title }}
+      </h5>
+      <p class="mb-0">{{ session.description }}</p>
+      <button (click)="openVideo(session.videoUrl)" class="btn btn-primary">
+        Watch Video
+      </button>
+    </div> -->
+      </div>
 
-  <div *ngIf="!courseDetail">
-    <p>Uploading soon...</p>
+      <div *ngIf="!courseDetail">
+        <p>Uploading soon...</p>
+      </div>
+    </div>
   </div>
 </div>

@@ -31,4 +31,8 @@ export class CourseDetailsComponent implements OnInit {
       }
     });
   }
+
+  openVideo(videoUrl: string): void {
+    window.open(videoUrl, '_blank');
+  }
 }
